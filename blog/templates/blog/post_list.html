@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% load bootstrap5 %}
+{% bootstrap_javascript %}
+{% bootstrap_css %}
+
+    {% block content %}
+        {{ user }}
+        {% for post in post_list %}
+            {{ post.title }}
+            {{ post.content }}
+        {% endfor %}
+    {% endblock %}
+
+
+
+
