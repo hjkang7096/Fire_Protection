@@ -1,16 +1,30 @@
-{% extends 'layout.html' %}
+{% extends "base.html" %}
 {% load bootstrap5 %}
-{% bootstrap_javascript %}
-{% bootstrap_css %}
 
-    {% block content %}
-        {{ user }}
-        {% for post in post_list %}
-            {{ post.title }}
-            {{ post.content }}
+
+{% block content %}
+    {% if page_obj.exists %}
+        <!-- Featured blog post-->
+        {% for post in page_obj %}
+            <div class="card mb-4">
+                <a href="#!"><img class="card-img-top" src="https://dummyimage.com/850x350/dee2e6/6c757d.jpg" alt="..." /></a>
+                <div class="card-body">
+                    <div class="small text-muted">{{ post.created_at }}</div>
+                    <h2 class="card-title">{{ post.title }}</h2>
+                    <p class="card-text">{{ post.text }}</p>
+                    <a class="btn btn-primary" href="{{ post.get_absolute_url }}">Read more →</a>
+                </div>
+            </div>
         {% endfor %}
-    {% endblock %}
+    {% else %}
+        <P>아직 게시물이 없습니다.</P>
+    {% endif %}
 
-
-
-
+    <!-- Pagination-->
+    {% bootstrap_pagination page_obj %}
+        <style>
+            ul {
+                justify-content: center;
+            }
+        </style>
+{% endblock content %}

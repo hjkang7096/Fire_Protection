@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+    {{ post.author }}
+    <div class="container-md">
+        <form action="" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% bootstrap_form form %}
+          {% buttons %}
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          {% endbuttons %}
+        </form>
+    </div>
+
+{% endblock %}
