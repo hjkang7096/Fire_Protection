@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+<!-- Page header with logo and tagline-->
+<header class="py-3 bg-white border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-3">
+            <h2>블로그에 오신것을 환영합니다.
+                {% if slug %}
+                    <span class=""> ({{ slug }}) </span>
+                {% elif search %}
+                    <span class=""> (Search) </span>
+                {% elif tag %}
+                    <span class=""> (Tag) </span>
+                {% endif %}
+            </h2>
+            <br>
+            <p class="lead">
+                <span class="fw-bold fst-italic">"소방에 관련된 정보를 신속하게 제공합니다.!" </span>
+                {% if user.is_superuser %}
+                    <a href="{% url "blog:post_new" %}">
+                        <i class="fa-sharp fa-solid fa-pen-nib" style="font-size: x-large"></i></a>
+                {% endif %}
+            </p>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <!-- Blog entries-->
+        <div class="col-lg-8">
+
+            {% block semi_content %}
+
+            {% endblock semi_content %}
+
+        </div>
+        {% include "blog/side_widgets.html" %}
+    </div>
+</div>
+
+{% include "footer.html" %}
+
+    <style type="text/css">
+        a { text-decoration:none; color: black }
+    </style>
+
+{% endblock content %}
+
+

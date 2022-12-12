@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>회원탈퇴</h3>
+                </div>
+                <div class="card-body">
+                    <p>
+                        <strong>{{ user }}</strong>
+                        회원님의 계정이 삭제됩니다.
+                        <br>탈퇴시 개인정보 및 이용정보가 삭제되며 복구할 수 없습니다.
+                        <br>본인의 비밀번호를 입력한 후 하단의 유의사항 동의에 체크하세요.
+                    </p>
+                    {% if form %}
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            {% bootstrap_form form %}
+                            <ul>
+                                <li>
+                                    <small>
+                                        본인인증을 위해 비밀번호를 입력해주세요.
+                                    </small>
+                                </li>
+                            </ul>
+                            <label>
+                               <input type="checkbox" name="ck" onClick="checkDisable(this.form)">
+                               <span>유의사항 동의</span>
+                            </label>
+                            {% buttons %}
+                                <button type="submit" name="bt" class="btn btn-primary mt-2" disabled>
+                                    회원탈퇴
+                                </button>
+                            {% endbuttons %}
+                        </form>
+                    {% else %}
+                        <div class="alert alert-danger">
+                            form 객체를 지정해주세요.
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+
+<script type="text/javascript">
+    function checkDisable(form) {
+        if (form.ck.checked == true) {
+            form.bt.disabled = false;
+        } else {
+            form.bt.disabled = true;
+        }
+    }
+</script>
+
+{% endblock content %}

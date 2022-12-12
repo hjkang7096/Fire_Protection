@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-lg-8 col-md-12 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <h3>아이디찾기</h3>
+                </div>
+                <div class="card-body">
+                    {% csrf_token %}
+                    {% bootstrap_form form %}
+                    <ul>
+                        <li>
+                            <small>등록하신 이메일주소가 일치해야 합니다.</small>
+                        </li>
+                    </ul>
+                    {% buttons %}
+                        <button class="btn btn-primary mt-2" id="find_id" name="recovery_id">아이디찾기</button>
+                    {% endbuttons %}
+
+                    <div id="result_id"></div>
+                </div>
+            </div>
+            <div class="mt-2">
+                <a href="{% url "accounts:login" %}">로그인</a> &nbsp; <a href="{% url "accounts:password_reset" %}">비밀번호찾기</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+{#<div>#}
+{#    {% csrf_token %}#}
+{#    {% bootstrap_form form %}#}
+{#    <small>#}
+{#        등록하신 이름과 메일주소가 일치해야 합니다.#}
+{#    </small>#}
+{#    <div>#}
+{#        <button id="find_id" name="recovery_id">아이디찾기</button>#}
+{#    </div>#}
+{##}
+{#    <div id="result_id"></div>#}
+{##}
+{#    <script type="text/javascript">#}
+{#        $(document).ready(function () {#}
+{#            $('#find_id').click(function () {#}
+{#                var email = $("#form_email").val();#}
+{##}
+{#                $.ajax({#}
+{#                    type: "POST",#}
+{#                    url: "/accounts/recovery/id/find/",#}
+{#                    dataType: "json",#}
+{#                    data: {#}
+{#                        'email': email,#}
+{#                        'csrfmiddlewaretoken': '{{csrf_token}}',#}
+{#                    },#}
+{#                    success: function (response) {#}
+{#                        $('#result_id').replaceWith(#}
+{#                            '<div id="result_id"><hr><div><span>입력된 정보로 가입된 아이디는 </span><span id="result_id">' +#}
+{#                                response.result_id +'</span><span> 입니다.</span></div><hr></div>')#}
+{#                    },#}
+{#                    error: function () {#}
+{#                        if (email === "") {#}
+{#                            alert('이름와 이메일을 입력해주세요.');#}
+{#                        } else {#}
+{#                            alert('입력하신 정보가 일치하지 않거나 존재하지 않습니다.');#}
+{#                        }#}
+{#                    },#}
+{#                });#}
+{#            })#}
+{#        });#}
+{#    </script>#}
+{#</div>#}
+
+{% include "footer.html" %}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#find_id').click(function () {
+            var email = $("#form_email").val();
+
+            $.ajax({
+                type: "POST",
+                url: "/accounts/recovery/id/find/",
+                dataType: "json",
+                data: {
+                    'email': email,
+                    'csrfmiddlewaretoken': '{{csrf_token}}',
+                },
+                success: function (response) {
+                    $('#result_id').replaceWith(
+                        '<div id="result_id"><hr><div><span>입력된 정보로 가입된 아이디는 </span><strong id="result_id">' +
+                            response.result_id +'</strong><span> 입니다.</span></div><hr></div>')
+                },
+                error: function () {
+                    if (email === "") {
+                        alert('이름와 이메일을 입력해주세요.');
+                    } else {
+                        alert('입력하신 정보가 일치하지 않거나 존재하지 않습니다.');
+                    }
+                },
+            });
+        })
+    });
+</script>
+
+{% endblock content %}

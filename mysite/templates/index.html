@@ -1,20 +1,26 @@
+
 {% extends "layout.html" %}
-{% load bootstrap5 %}
-{% load static %}
+{% load bootstrap5 static%}
+
 
 
 {% block content %}
+    {% include "navbar.html" %}
     <div class="container text-center">
-      <div class="row">
-        <div class="col">
-            <img src="{% static "img/img.png" %}" class="card-img-top" alt="Django" height="300px" width="300px">
+        <div class="row">
+            <div class="col-12">
+                <a href="{% url "accounts:login" %}">
+                    <img src="{% static "img/city-g311bc573d_1920.jpg" %}" class="card-img-top" alt="Django">
+                </a>
+            </div>
+{#            <div class="col">#}
+{#                <img src="{% static "img/bootstrap-social-logo.png" %}" class="card-img-top" alt="" height="300px" width="300px">#}
+{#            </div>#}
+{#            <div class="col">#}
+{#                <img src="{% static "img/anaconda.png" %}" class="card-img-top" alt="" height="300px" width="300px">#}
+{#            </div>#}
         </div>
-        <div class="col">
-          <img src="{% static "img/bootstrap-social-logo.png" %}" class="card-img-top" alt="" height="300px" width="300px">
-        </div>
-        <div class="col">
-          <img src="{% static "img/anaconda.png" %}" class="card-img-top" alt="" height="300px" width="300px">
-        </div>
-      </div>
     </div>
+    {% include "footer.html" %}
+
 {% endblock content %}

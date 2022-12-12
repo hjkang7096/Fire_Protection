@@ -1,0 +1,190 @@
+{% load bootstrap5 %}
+
+
+<div class="card mb-4">
+    <div class="card-header">
+        <h3 class="fst-italic fw-bold">{{ form_title }}</h3>
+    </div>
+
+    <div class="card-body">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="container-md">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="mb-3 row">
+                            <label for="title" class="col-sm-2 col-form-label">제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</label>
+                            <div class="col-sm-10">
+                                {% bootstrap_field form.title placeholder=None show_label=False %}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="phone_number" class="col-sm-2 col-form-label">전화번호</label>
+                            <div class="col-sm-3">
+                                {% bootstrap_field form.phone_number show_label=False %}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="category" class="col-sm-2 col-form-label">서&nbsp;비&nbsp;스</label>
+                            <div class="col-sm-3">
+                                {% bootstrap_field form.category placeholder=None show_label=False %}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="postcode" class="col-sm-2 col-form-label">우편번호</label>
+                            <div class="col-sm-4 d-flex">
+                                {% bootstrap_field form.postcode placeholder=None show_label=False %}
+                                <input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class="ms-5" style="height: 40px">
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="roadAddress" class="col-sm-2 col-form-label">도로주소</label>
+                            <div class="col-sm-10">
+                                {% bootstrap_field form.roadAddress placeholder=None show_label=False %}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="jibunAddress" class="col-sm-2 col-form-label">지번주소</label>
+                            <div class="col-sm-10">
+                                {% bootstrap_field form.jibunAddress placeholder=None show_label=False %}
+                            </div>
+                        </div>
+                        <div class="mb-3 row">
+                            <label for="detailAddress" class="col-sm-2 col-form-label">상세주소</label>
+                            <div class="col-sm-10">
+                                {% bootstrap_field form.detailAddress placeholder=None show_label=False %}
+                            </div>
+                        </div>
+                        {% bootstrap_field form.content placeholder=None %}
+
+                        <div class="mb-3" style="display: none">
+                            <input type="text" class="" id="sample4_postcode" placeholder="우편번호">
+                            <input type="button" class="" onclick="sample4_execDaumPostcode()" value="우편번호 찾기"><br>
+                            <input type="text" id="sample4_roadAddress" placeholder="도로명주소">
+                            <input type="text" id="sample4_jibunAddress"  placeholder="지번주소">
+                            <span id="guide" style="color:#999;display:none"></span>
+                            <input type="text" id="sample4_detailAddress" placeholder="상세주소" >
+                            <input type="text" id="sample4_extraAddress" placeholder="참고항목"> <br/>
+                        </div>
+
+                        <hr>
+                            <h5>수집하는 개인정보의 항목</h5>
+                            <p>회사는 회원가입, 상담, 서비스 신청 등을 위해 아래와 같은 개인정보를 수집하고 있습니다.</p>
+                            <ul>
+                                <li><strong>수집항목</strong> : 전화번호, 핸드폰, 이메일, 주소, 남기는말</li>
+                                <li><strong>개인정보 수집방법</strong> : 홈페이지</li>
+                            </ul>
+                            <h5>개인정보의 수집 및 이용목적</h5>
+                            <p>회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.</p>
+                            <ul>
+                                <li>
+                                    <strong>서비스 제공에 관한 계약 이행 및 서비스 제공에 따른 요금정산</strong>
+                                    <p>구매 및 요금 결제, 물품배송 또는 청구지 등 발송</p>
+                                </li>
+                                <li>
+                                    <strong>회원 관리</strong>
+                                    <p>회원제 서비스 이용에 따른 본인확인, 개인 식별, 불량회원의 부정 이용 방지와 비인가 사용 방지, 가입 의사 확인, 연령확인</p>
+                                </li>
+                            </ul>
+                            <h5>개인정보의 보유 및 이용기간</h5>
+                            <p>회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외 없이 해당 정보를 지체 없이 파기합니다.</p>
+                        <hr>
+
+                        <label class="mb-3">
+                           <input type="checkbox" name="ck" onClick="checkDisable(this.form)">
+                           <span>개인정보 수집·이용에 동의합니다.</span>
+                        </label>
+
+                        {% buttons %}
+                            <button type="submit" name="bt" class="btn btn-primary" disabled>
+                                제출
+                            </button>
+                        {% endbuttons %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
+    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+    function sample4_execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var roadAddr = data.roadAddress; // 도로명 주소 변수
+                var extraRoadAddr = ''; // 참고 항목 변수
+
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('sample4_postcode').value = data.zonecode;
+                document.getElementById("sample4_roadAddress").value = roadAddr;
+                document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+
+                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                if(roadAddr !== ''){
+                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                } else {
+                    document.getElementById("sample4_extraAddress").value = '';
+                }
+
+                var guideTextBox = document.getElementById("guide");
+                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                if(data.autoRoadAddress) {
+                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                    guideTextBox.style.display = 'block';
+
+                } else if(data.autoJibunAddress) {
+                    var expJibunAddr = data.autoJibunAddress;
+                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                    guideTextBox.style.display = 'block';
+                } else {
+                    guideTextBox.innerHTML = '';
+                    guideTextBox.style.display = 'none';
+                }
+            }
+        }).open();
+    }
+</script>
+
+<script type="text/javascript">
+    function checkDisable(form) {
+        if (form.ck.checked == true) {
+            form.bt.disabled = false;
+        } else {
+            form.bt.disabled = true;
+        }
+    }
+</script>
+
+<script src="https://cdn.tiny.cloud/1/ltkk2wmag3twfcsflbdvyehsx2r7mkv3k5h46avyl67mrt8k/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector:"textarea",
+        menubar: false,
+        statusbar: false,
+        toolbar1: "formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat"
+        {#height: "330"#}
+        {#width: "830"#}
+    });
+</script>
+

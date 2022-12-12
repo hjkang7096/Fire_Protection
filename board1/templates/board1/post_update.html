@@ -1,0 +1,7 @@
+{% extends "board1/post_base.html" %}
+{% load bootstrap5 %}
+
+    {% block semi_content %}
+        {% include "_form.html" with form_title="포스트 수정" submit_label="제출" %}
+        <br>
+    {% endblock semi_content %}

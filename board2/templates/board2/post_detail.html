@@ -1,0 +1,55 @@
+{% extends "board2/post_base.html" %}
+{% load bootstrap5 %}
+
+    {% block semi_content %}
+
+        <div class="card">
+            <div class="card-header" style="background-color: white">
+                <div class="d-flex text-muted mt-3">
+                    <div class="flex-grow-1">
+                        <!-- Post title-->
+                        <h3 class="mb-1">{{ post.title }}</h3>
+                    </div>
+                    <div>
+                        <a class="badge bg-secondary text-decoration-none link-light me-1 mt-1" style="font-size: small;" href="{% url "board2:post_list" %}"> 목록 </a>
+                        {% if user.is_authenticated and post.author == request.user %}
+                            <a class="badge bg-secondary text-decoration-none link-light me-1" style="font-size: small" href="{% url "board2:post_update" post.pk %}"> 수정</a>
+                            <a type="button" class="badge bg-secondary text-decoration-none link-light me-1" style="font-size: small" data-bs-toggle="modal" data-bs-target="#PostDeleteModal"> 삭제</a>
+                            {% include "board2/Post_delete_modal.html" %}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="d-flex text-muted mt-3">
+                    <div class="flex-grow-1">
+                        <span class="badge rounded-pill bg-light text-muted" style="color: black; font-size: 14px">
+                            <img class="rounded-circle me-1" src="{{ post.author.avatar_url }}" alt="pydenticon_image" style="height: 32px; width: 32px"/>
+                            {{ post.author }}
+                        </span>
+                    </div>
+                    <div>
+                        <span class="justify-content-end" style="font-size: 14px">Posted on {{ post.created_at | date:"Y-m-d" }} </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-body">
+                <!-- Post content-->
+                <section class="mb-2 lh-lg">
+                    전화번호 : {{ post.phone_number }} <br>
+                    우편번호 : {{ post.postcode }} <br>
+                    도로주소 : {{ post.roadAddress }} <br>
+                    지번주소 : {{ post.jibunAddress }} <br>
+                    상세주소 : {{ post.detailAddress }}
+                </section>
+            </div>
+            <div class="card-footer">
+                <hr>
+                   {{ post.content | safe }}
+                <hr>
+            </div>
+        </div>
+        <br>
+        <!-- Comments section-->
+        {% include "board2/comment_form.html" %}
+
+    {% endblock semi_content %}

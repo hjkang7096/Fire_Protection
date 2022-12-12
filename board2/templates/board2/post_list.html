@@ -1,0 +1,66 @@
+{% extends "board2/post_base.html" %}
+{% load bootstrap5 %}
+
+    {% block semi_content %}
+
+        <table class="table table-hover">
+            <thead class="table-light text-lg-center">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col" style="width: 500px">제 목</th>
+                    <th scope="col">작성자</th>
+                    <th scope="col">작성일</th>
+                    <th scope="col">댓글</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% if post_list %}
+                    {% for post in page_obj %}
+                        <tr>
+                            <th scope="row" class="text-lg-center">{{ post.pk }} &nbsp;</th>
+                            <td>
+                                <span class="fw-bold">
+                                    {% if post.category == None %}
+                                        [기 타] &nbsp;
+                                    {% else %}
+                                        [{{ post.category }}] &nbsp;
+                                    {% endif %}
+                                </span>
+                                <a href="{% url "board2:post_detail" post.pk %}">{{ post.title }}</a>
+                                {% if post.created_at >= diff_time %}
+                                    &nbsp;<i class="fa-regular fa-comment-dots" style="font-size: 5px; color: red"> new</i>
+                                {% endif %}
+                            </td>
+                            <td class="text-lg-center">
+                                <span class="badge rounded-pill bg-light" style="color: black">
+                                    <img class="rounded-circle me-1" src="{{ post.author.avatar_url }}" alt="pydenticon_image" style="height: 24px; width: 24px"/>
+                                    {{ post.author }}
+                                </span>
+                            </td>
+                            <td class="text-lg-center">
+                                <span class="text-muted" style="font-size: 14px">{{ post.created_at |  date:"Y-m-d" }}</span>
+                            </td>
+                            <td class="text-lg-center">
+                                {{ post.comment_set.all.count }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+        <div class="d-flex">
+            <div class="flex-grow-1">
+                {% bootstrap_pagination page_obj %}
+                <style> ul{ justify-content: center } </style>
+            </div>
+            <div>
+               {% if user.is_authenticated %}
+                    <a class="btn btn-secondary mb-3 justify-content-end" style="font-size: small" role="button" href="{% url "board2:post_new" %}">
+                        <i class="fa-solid fa-pen"></i> &nbsp;글쓰기
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+    {% endblock semi_content %}

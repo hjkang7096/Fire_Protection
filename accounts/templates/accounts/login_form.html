@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+
+{% include "navbar.html" %}
+
+<div class="container p-5">
+    <div class="row">
+        <div class="col-lg-6 col-md-12 mx-auto">
+            {% include "_form.html" with form_title="로그인" submit_label="로그인" %}
+            <div class="mt-2">
+                <a href="{% url "accounts:recovery_id" %}">아이디찾기</a> &nbsp; <a href="{% url "accounts:password_reset" %}">비밀번호찾기</a>
+            </div>
+{#            <div class="card">#}
+{#                <div class="card-header">#}
+{#                    <h3>로그인</h3>#}
+{#                </div>#}
+{#                <div class="card-body">#}
+{#                    {% if form %}#}
+{#                        <form action="" method="POST" enctype="multipart/form-data">#}
+{#                            {% csrf_token %}#}
+{#                            {% bootstrap_form form %}#}
+{#                            {% buttons %}#}
+{#                                <button type="submit" class="btn btn-primary mt-2">#}
+{#                                    로그인#}
+{#                                </button>#}
+{#                                <a class="btn btn-secondary mt-2" role="button" href="{% url "accounts:signup" %}">#}
+{#                                    회원가입#}
+{#                                </a>#}
+{#                            {% endbuttons %}#}
+{#                        </form>#}
+{#                    {% else %}#}
+{#                        <div class="alert alert-danger">#}
+{#                            form 객체를 지정해주세요.#}
+{#                        </div>#}
+{#                    {% endif %}#}
+{#                </div>#}
+{#            </div>#}
+        </div>
+    </div>
+</div>
+
+{% include "footer.html" %}
+{% endblock content %}

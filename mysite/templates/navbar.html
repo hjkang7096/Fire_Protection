@@ -1,0 +1,130 @@
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-light">
+    <div class="container">
+        <a class="navbar-brand" href="/" style="color: black">Fire Protection</a>
+        <button class="navbar-toggler bg-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="/" style="color: black">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url "about" %}" style="color: black">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{% url "blog:post_list" %}" style="color: black">Blog</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">
+                         Board
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url "board1:post_list" %}">자유게시판</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url "board2:post_list" %}">소방서비스</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% if not user.is_active %}
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-right-to-bracket" style="font-size: 20px; color: black"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url "accounts:login" %}">로그인</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="#">비밀번호 찾기</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url "accounts:signup" %}">회원가입</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">
+                        <img class="rounded-circle me-1" src="{{ user.avatar_url }}" alt="pydenticon_image" style="height: 32px; width: 32px"/>
+                        <span class="text-muted"> {{ user }}</span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url "accounts:profile_edit" %}">회원정보수정</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url "accounts:profile_delete" %}">회원탈퇴</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="{% url "accounts:logout" %}">로그아웃</a></li>
+                    </ul>
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+{#<nav class="navbar navbar-expand-lg bg-light">#}
+{#    <div class="container-fluid" style="font-size: 20px">#}
+{#        <a class="navbar-brand ms-5 ps-5" href="/" style="color: black;">Fire Protection</a>#}
+{#        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">#}
+{#            <span class="navbar-toggler-icon"></span>#}
+{#        </button>#}
+{#        <div class="collapse navbar-collapse" id="navbarScroll">#}
+{#            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" style="color: black" aria-current="page" href="/">Home</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" style="color: black" aria-current="page" href="{% url "about" %}">About</a>#}
+{#                </li>#}
+{#                <li class="nav-item">#}
+{#                    <a class="nav-link" style="color: black;" href="{% url "blog:post_list" %}">Blog</a>#}
+{#                </li>#}
+{#                <li class="nav-item dropdown">#}
+{#                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">#}
+{#                         Board#}
+{#                    </a>#}
+{#                    <ul class="dropdown-menu">#}
+{#                        <li><a class="dropdown-item" href="{% url "board1:post_list" %}">자유게시판</a></li>#}
+{#                        <li><hr class="dropdown-divider"></li>#}
+{#                        <li><a class="dropdown-item" href="{% url "board2:post_list" %}">소방서비스</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
+{#            </ul>#}
+{#            {% if not user.is_active %}#}
+{#                <ul class="navbar-nav me-5 pe-5">#}
+{#                    <li class="nav-item d-flex"><a class="nav-link float-end" style="color: black;" href="{% url "accounts:login" %}">Login</a></li>#}
+{#                </ul>#}
+{#                <ul class="navbar-nav me-5 pe-5">#}
+{#                    <li class="nav-item dropdown">#}
+{#                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">#}
+{#                            <i class="fa-solid fa-right-to-bracket" style="font-size: 20px"></i>#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu">#}
+{#                            <li><a class="dropdown-item" href="{% url "accounts:login" %}">로그인</a></li>#}
+{#                            <li><hr class="dropdown-divider"></li>#}
+{#                            <li><a class="dropdown-item" href="#">비밀번호 찾기</a></li>#}
+{#                            <li><hr class="dropdown-divider"></li>#}
+{#                            <li><a class="dropdown-item" href="{% url "accounts:signup" %}">회원가입</a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            {% else %}#}
+{#                <ul class="navbar-nav me-5 pe-5">#}
+{#                    <li class="nav-item dropdown">#}
+{#                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black">#}
+{#                            <img class="rounded-circle me-1" src="{{ user.avatar_url }}" alt="pydenticon_image" style="height: 32px; width: 32px"/>#}
+{#                            <span class="text-muted"> {{ user }}</span>#}
+{#                        </a>#}
+{#                        <ul class="dropdown-menu">#}
+{#                            <li><a class="dropdown-item" href="{% url "accounts:profile_edit" %}">회원정보수정</a></li>#}
+{#                            <li><hr class="dropdown-divider"></li>#}
+{#                            <li><a class="dropdown-item" href="{% url "accounts:profile_delete" %}">회원탈퇴</a></li>#}
+{#                            <li><hr class="dropdown-divider"></li>#}
+{#                            <li><a class="dropdown-item" href="{% url "accounts:logout" %}">로그아웃</a></li>#}
+{#                        </ul>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            {% endif %}#}
+{#        </div>#}
+{#    </div>#}
+{#</nav>#}

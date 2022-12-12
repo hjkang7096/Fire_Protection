@@ -1,0 +1,67 @@
+{% load bootstrap5 %}
+
+<!-- Side widgets-->
+<div class="col-lg-4">
+    <!-- Search widget-->
+    <div class="card mb-4">
+        <div class="card-header">Search</div>
+        <div class="card-body">
+            <div class="input-group">
+                <label for="search-input"></label><input class="form-control" type="text" placeholder="Enter search term..." id="search-input"/>
+                <button class="btn btn-secondary" id="button-search" type="button" onclick="searchPost();">Go!</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories widget-->
+    <div class="card mb-4">
+        <div class="card-header">Categories</div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-6">
+                    <ul class="list-unstyled mb-2">
+                        <li>
+                            <a class="text-muted" href="{% url "blog:post_list" %}"> 전 체 <span class="float-sm-end">({{ total_category_count }})</span></a>
+                        </li>
+                    </ul>
+                </div>
+                {% for category in categories %}
+                    <div class="col-sm-6">
+                        <ul class="list-unstyled mb-2">
+                            <li>
+                                <a class="text-muted" href="{% url "blog:post_list_category" category.slug %}">{{ category.slug }} <span class="float-sm-end">({{ category.post_set.count }})</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+                <div class="col-sm-6">
+                    <ul class="list-unstyled mb-2">
+                        <li>
+                            <a class="text-muted" href="{% url "blog:post_list_category" "기 타" %}"> 기 타 <span class="float-sm-end">({{ no_category_count }})</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function searchPost(){
+        let searchValue = document.getElementById("search-input").value.trim();
+        if (searchValue.length > 1) {
+            location.href = "/blog/post_list_search/" + searchValue + "/";
+        }
+        else {
+            alert("검색어(" + searchValue + ")가 너무 짧습니다.")
+        }
+    }
+
+    document.getElementById("search-input").addEventListener("keydown", function(e)
+        {
+            if(e.key === "Enter"){
+                searchPost()
+            }
+        });
+</script>
+

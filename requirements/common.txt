@@ -1,0 +1,9 @@
+django~=3.2.16
+django-bootstrap-v5
+pillow
+easy-thumbnails
+django-pydenticon
+django-summernote
+pilkit
+django-imagekit
+django-tinymce

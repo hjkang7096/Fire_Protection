@@ -11,9 +11,19 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 """
 import os.path
 from pathlib import Path
+from django.contrib.messages import constants as message_constants
+import collections
+
+from django.urls import reverse_lazy
+
+if not hasattr(collections, "Callable"):
+    collections.Callable = (
+        collections.abc.Callable
+    )  # pydenticon 관련 이슈(구글에서 검색하면 이진석님 답변이 있음)
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,7 +39,6 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
     # Django Apps
     "django.contrib.admin",
@@ -38,10 +47,19 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.humanize",
     # Third Apps
     "bootstrap5",
+    "easy_thumbnails",
+    "django_pydenticon",
+    "django_summernote",
+    "imagekit",
+    "tinymce",
     # Local Apps
     "blog",
+    "accounts",
+    "board1",
+    "board2",
 ]
 
 MIDDLEWARE = [
@@ -108,13 +126,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = "en-us"
+LANGUAGE_CODE = "ko-kr"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Seoul"
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
@@ -133,3 +151,43 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+MESSAGE_LEVEL = message_constants.DEBUG
+
+AUTH_USER_MODEL = "accounts.User"
+
+# send email
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = "smtp.googlemail.com"
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "hjkang7096@gmail.com"
+EMAIL_HOST_PASSWORD = "nhfoygufekhwnnza"
+
+LOGIN_URL = "/"
+LOGIN_REDIRECT_URL = reverse_lazy("root")
+
+# summernote 기능을 구현하기 위해 꼭 필요한 인자 (django 3.0 이상부터)
+X_FRAME_OPTIONS = "SAMEORIGIN"
+
+SUMMERNOTE_THEME = 'bs5'
+
+# summernote setting
+SUMMERNOTE_CONFIG = {
+    # Change editor size
+    "width": "100%",
+    "height": "480",
+    # Toolbar customization
+    # https://summernote.org/deep-dive/#custom-toolbar-popover
+    "toolbar": [
+        ["style", ["bold", "italic", "underline", "clear"]],
+        ["font", ["strikethrough", "superscript", "subscript"]],
+        ["fontname", ["fontname"]],
+        ["fontsize", ["fontsize"]],
+        ["color", ["color"]],
+        ["para", ["ul", "ol", "paragraph"]],
+        ["height", ["height"]],
+    ],
+    # Or, explicitly set language/locale for editor
+    "lang": "ko-KR",
+}

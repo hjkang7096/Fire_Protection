@@ -1,0 +1,38 @@
+{% load bootstrap5 %}
+
+
+<div class="card">
+    <div class="card-header">
+        <h3>{{ form_title }}</h3>
+    </div>
+    <div class="card-body">
+        {% if form %}
+            <form action="" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% buttons %}
+                    <button type="submit" class="btn btn-primary mt-2">
+                        {{ submit_label|default:"Submit" }}
+                    </button>
+                {% endbuttons %}
+            </form>
+        {% else %}
+            <div class="alert alert-danger">
+                form 객체를 지정해주세요.
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+
+<script src="https://cdn.tiny.cloud/1/ltkk2wmag3twfcsflbdvyehsx2r7mkv3k5h46avyl67mrt8k/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+    tinymce.init({
+        selector:'textarea',
+        menubar: false,
+        statusbar: false,
+        toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify | numlist bullist outdent indent | removeformat'
+    });
+</script>
+
+

@@ -1,26 +1,21 @@
 from django import forms
 from .models import Post, Comment
 from django_summernote.widgets import SummernoteWidget
-from tinymce.widgets import TinyMCE
-
-
 
 
 class PostForm(forms.ModelForm):
-
     class Meta:
         model = Post
         fields = ["title", "content", "head_image", "file_upload", "category"]
         # widgets = {
-        #     "content": TinyMCE(
-        #         # attrs={"summernote": {"width": "50%", "height": "400px"}}
+        #     "content": SummernoteWidget(
+        #         attrs={"summernote": {"width": "50%", "height": "400px"}}
         #     ),
         # }
 
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)
         self.fields["content"].widget.attrs = {
-            # "placeholder": "본문에 #을 이용하여 태그를 사용해 보세요",
             "rows": 15,
             "cols": 60,
         }

@@ -1,0 +1,95 @@
+{% extends "layout.html" %}
+{% load bootstrap5 static%}
+
+
+
+{% block content %}
+    {% include "navbar.html" %}
+
+    <div class="container text-center">
+        <div class="row">
+            <section>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-lg-8" >
+                            <h1>안녕하세요. 소방인 강휘주입니다.</h1>
+                            <br/>
+                            <p class="lead">
+                                소방과 관련된 일을 좋아합니다. <br/>
+                                소방관으로 업을 삼고, 퇴근 후에는 소방인으로서의 제 2의 삶을 준비 중입니다.
+                            </p>
+
+                            <ul>
+                                <li>WORK EXPERIENCE</li>
+                                <ul>
+                                    <li>청와대 국가위기관리센터 (2021.3 ~ )</li>
+                                    <li>경기도청 안전관리실 (2018. 3. ~ 2019. 6)</li>
+                                    <li>경기도 소방재난본부 (2016. 7. ~ 2018. 2)</li>
+                                    <li>제20기 소방간부후보생(2014. 3 ~ 2015. 3)</li>
+                                    <li>제44기 경기도소방공채(2008. 1 ~ 2014. 2)</li>
+                                </ul>
+                                <br>
+
+                                <li>LICENSE</li>
+                                <ul>
+                                    <li>소방기술사(2020)</li>
+                                    <li>소방시설관리사(2018)</li>
+                                    <li>소방설비기사(2015)</li>
+                                </ul>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4">
+                            <img class="img-fluid" src="{% static "img/family.jpg" %}">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="bg-light margin-for-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1>PORTFOLIO</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <img class="card-img-top" src="{% static "img/국가직.jpg" %}">
+                                <div class="card-body">
+                                    <h5 class="card-title">국가직 후 1년</h5>
+                                    <p>국가직 후 소방공무원의 처우개선 등 달라진 점을 알아봅니다.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <img class="card-img-top" src="{% static "img/소방법.jfif" %}">
+                                <div class="card-body">
+                                    <h5 class="card-title">소방관계법령</h5>
+                                    <p>2021년 새롭게 바뀌는 소방(안전)과 관련된 법령 모음집입니다.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="card">
+                                <img class="card-img-top" src="{% static "img/홍보.jpg" %}">
+                                <div class="card-body" >
+                                    <h5 class="card-title">소방홍보동영상</h5>
+                                    <p>안전과 관련하여 꼭 필요한 소방 동영상을 홍보합니다.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+    {% include "footer.html" %}
+
+{% endblock content %}

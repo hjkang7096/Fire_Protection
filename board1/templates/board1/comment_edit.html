@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <section class="mb-5">
+                    <div class="card bg-light">
+                        <div class="card-header">
+                            <strong>메세지 수정</strong>
+                        </div>
+                        <div class="card-body">
+                            <!-- Comment form-->
+                            <form class="mb-3" method="POST" enctype="multipart/form-data" action="{% url "board1:comment_edit" comment.pk %}">
+                                {% csrf_token %}
+                                {% bootstrap_form comment_form layout="inline" %}
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+                                    {% bootstrap_button "Submit" button_type="submit" button_class="btn-primary" %}
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}
