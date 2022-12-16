@@ -1,2 +1,4 @@
+/media
+/staticfiles
 db.sqlite3
 information.txt
