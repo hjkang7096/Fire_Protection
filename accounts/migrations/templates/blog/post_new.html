@@ -1,0 +1,31 @@
+{% extends "board1/layout.html" %}
+{% load bootstrap5 %}
+
+{% block content %}
+    <div class="card mb-4">
+        <div class="card-header">
+            <h3 class="fst-italic fw-bold">&nbsp; 새 포스트 작성</h3>
+        </div>
+
+        <div class="card-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="container-md">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                           {% csrf_token %}
+                           {% bootstrap_form form %}
+                           {% buttons %}
+                              <button type="submit" class="btn btn-primary">
+                                Submit
+                              </button>
+                              <a class="btn btn-dark" role="button" href="{% url "blog:post_list" %}">
+                                  뒤로
+                              </a>
+                           {% endbuttons %}
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

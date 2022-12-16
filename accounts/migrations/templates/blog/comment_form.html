@@ -1,0 +1,56 @@
+{% load bootstrap5 %}
+
+<!-- Comments section-->
+<section class="mb-5">
+    <div class="card bg-light">
+        <div class="card-header">
+            Leave a Comment
+        </div>
+        {% if user.is_authenticated %}
+            <div class="card-body">
+                <!-- Comment form-->
+                <form class="mb-3" method="POST" enctype="multipart/form-data" action="{% url "blog:new_comment" post.pk%}">
+                    {% csrf_token %}
+                    {% bootstrap_form comment_form layout="inline" %}
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2">
+                        {% bootstrap_button "Submit" button_type="submit" button_class="btn-primary" %}
+                    </div>
+                </form>
+                {% if post.comment_set.exists %}
+                    {% for comment in post.comment_set.all %}
+                        <!-- Comment with nested comments-->
+                        <div class="d-flex mb-4 mt-4">
+                            <!-- Parent comment-->
+                            <div class="flex-shrink-0"><img class="rounded-circle" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                            <div class="ms-3">
+                                <div class="fw-bold d-flex">
+                                    {{ comment.author }} &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <small class="text-muted">{{ comment.created_at }}</small>&nbsp;&nbsp;&nbsp;&nbsp;
+                                    {% if user.is_authenticated and comment.author == user %}
+                                        <div class="">
+                                            <a role="button" class="btn btn-sm btn-outline-primary mb-1" href="{% url "blog:comment_edit" comment.pk %}">수정</a>&nbsp;
+                                            <a role="button" class="btn btn-sm btn-outline-danger mb-1" data-bs-toggle="modal" data-bs-target="#CommentDeleteModal">삭제</a>&nbsp;
+                                            {% include "blog/comment_delete_modal.html" %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                                {{ comment.message | linebreaks }}
+{#                                <div class="float-end">#}
+                                    {% if comment.created_at != comment.updated_at %}
+                                        <p class="text-muted float-end"><small>Updated: {{ comment.updated_at }}</small></p>
+                                    {% endif %}
+{#                                </div>#}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        {% else %}
+             <div class="card-body">
+                <a role="button" class="btn btn-outline-dark d-grid" href="#" data-toggle="modal" data-target="#loginmodal">
+                    <strong>Log in and leave a comment</strong>
+                </a>
+             </div>
+        {% endif %}
+    </div>
+</section>

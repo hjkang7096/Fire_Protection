@@ -1,0 +1,77 @@
+{% extends "board1/layout.html" %}
+{% load bootstrap5 humanize %}
+
+
+{% block content %}
+    {% include "navbar.html" %}
+    <!-- Page content-->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- Post content-->
+                <article>
+                    <!-- Post header-->
+                    <header class="mb-2">
+                        <!-- Post title-->
+                        <h1 class="fw-bolder mb-1">{{ post.title }}</h1>
+                        <!-- Post meta content-->
+                        <div class="text-muted fst-italic mb-3 fw-bold">{{ post.created_at | naturalday }} &nbsp; <span class=""> by {{ post.author | upper }}</span></div>
+                        <!-- Post categories-->
+                        <a class="badge bg-secondary text-decoration-none link-light" style="font-size: medium;" href="{% url "blog:post_list" %}"> 목록으로 </a>
+                        {% if user.is_authenticated and post.author == request.user %}
+                            <a class="badge bg-secondary text-decoration-none link-light" style="font-size: medium" href="{% url "blog:post_update" post.pk %}">포스트 수정</a>
+                            <a type="button" class="badge bg-secondary text-decoration-none link-light" style="font-size: medium" data-bs-toggle="modal" data-bs-target="#PostDeleteModal">포스트 삭제</a>
+                            {% include "blog/Post_delete_modal.html" %}
+                        {% endif %}
+                    </header>
+                    <!-- Preview image figure-->
+                        {% if post.head_image %}
+                            <figure class="mb-4"><img class="img-fluid rounded" src="{{ post.head_image.url }}" alt="..." /></figure>
+                        {% else %}
+                            <figure class="mb-4"><img class="img-fluid rounded" src="https://picsum.photos/850/350/?blur" alt="..." /></figure>
+                        {% endif %}
+                    <!-- Post content-->
+                        <section class="mb-2 fw-lighter lh-lg">
+                            {{ post.content | linebreaks }}
+                    </section>
+                    {% if post.tag.exists %}
+                        <i class="fas fa-tags"></i>
+                        {% for tag in post.tag.all %}
+                            <a href="{{ tag.get_absolute_url }}">
+                                <span class="badge rounded-pill bg-light" style="color: darkorange">{{ tag }}</span>
+                            </a>
+                        {% endfor %}
+                    {% endif %}
+                    <br>
+                    <br>
+                    <section class="mb-5">
+                        {% if post.file_upload %}
+                            <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button" download>
+                                Download :&nbsp;
+                                {% if post.get_file_ext == "csv" %}
+                                    <i class="fa-solid fa-file-csv"></i>
+                                {% elif post.get_file_ext == "xlsx" or post.get_file_ext == "xls" %}
+                                    <i class="fa-solid fa-file-excel"></i>
+                                {% elif post.get_file_ext == "docx" or post.get_file_ext == "doc" %}
+                                    <i class="fa-solid fa-file-word"></i>
+                                {% else %}
+                                    <i class="fa-solid fa-file"></i>
+                                {% endif %}
+                                {{ post.get_file_name }}
+                            </a>
+                        {% endif %}
+                    </section>
+                </article>
+                <!-- Comments section-->
+                    {% include "blog/comment_form.html" %}
+            </div>
+            <!-- Side widgets-->
+                {% include "blog/../../../../board1/templates/board1/side_widgets.html" %}
+        </div>
+    </div>
+    {% include "footer.html" %}
+
+{% endblock content %}
+
+
+

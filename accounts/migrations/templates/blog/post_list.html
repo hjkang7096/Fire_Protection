@@ -1,0 +1,87 @@
+{% extends "layout.html" %}
+{% load bootstrap5 humanize thumbnail %}
+
+
+{% block content %}
+    {% include "navbar.html" %}
+
+    <!-- Page header with logo and tagline-->
+    <header class="py-5 bg-light border-bottom mb-4">
+        <div class="container">
+            <div class="text-center my-5">
+                <h1 class="fw-bolder">Welcome to Blog Home!
+                    {% if slug %}
+                        {% if slug == None %}
+                            <span class=""> (전체 카테고리) </span>
+                        {% elif slug != "미분류" %}
+                            <span class=""> ({{ slug }}) </span>
+                        {% else %}
+                            <span class=""> (미분류) </span>
+                        {% endif %}
+                    {% elif search %}
+                        <span class=""> (Search) </span>
+                    {% elif tag %}
+                        <span class=""> (Tag) </span>
+                    {% else %}
+                    {% endif %}
+                </h1>
+                <br>
+                <p class="lead mb-0 fw-bold">
+                    <span class="fst-italic">"여러분의 이야기를 기록해 보세요!"</span>
+                    {% if user.is_authenticated %}
+                        <a role="button" class="btn btn-primary fst-italic fw-bold" style="font-size: small" href="{% url "blog:post_new" %}"> 포스트 작성 </a>
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page content-->
+    <div class="container">
+        <div class="row">
+            <!-- Blog entries-->
+            <div class="col-lg-8">
+                {% if post_list %}
+                    {% for post in page_obj %}
+                        <!-- Featured blog post-->
+                        <div class="card mb-4">
+                            {% if post.head_image %}
+                                <a href=""><img class="card-img-top" src="{% thumbnail post.head_image 850x350 crop %}" alt="{{ post }} head image" /></a>
+                            {% else %}
+                                <img class="card-img-top" src="https://picsum.photos/850/350/?blur" alt="random_image">
+                            {% endif %}
+                            <div class="card-body">
+{#                                <div class="small text-muted">{{ post.created_at|naturalday }}</div>#}
+                                <h2 class="card-title">{{ post.title }}</h2>
+                                <p class="card-text lh-base">{{ post.content|truncatewords:45 }}</p>
+                                {% if post.tag.exists %}
+                                    <i class="fas fa-tags"></i>
+                                    {% for tag in post.tag.all %}
+                                        <a href="{{ tag.get_absolute_url }}">
+                                            <span class="badge rounded-pill bg-light" style="color: darkorange">{{ tag }}</span>
+                                        </a>
+                                    {% endfor %}
+                                    <br>
+                                    <br>
+                                {% endif %}
+                                <a class="btn btn-primary" href="{{ post.get_absolute_url }}">Read more →</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                                Posted on {{post.created_at }} &nbsp; by {{ post.author | upper }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else  %}
+                    <h3 class="d-flex justify-content-center"><span class="fw-light">검색결과가 없습니다.</span></h3>
+                    <br>
+                {% endif %}
+
+                <!-- Pagination-->
+                {% bootstrap_pagination page_obj %}
+                    <style> ul{ justify-content: center; } </style>
+            </div>
+            {% include "blog/../../../../board1/templates/board1/side_widgets.html" %}
+        </div>
+    </div>
+    {% include "footer.html" %}
+{% endblock content %}
