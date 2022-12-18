@@ -1,9 +1,0 @@
-docker run --rm --publish 9999:80 -e DJANGO_SETTINGS_MODULE=mysite.settings.prod -e AZURE_ACCOUNT_NAME="fireprotection" -e AZURE_ACCOUNT_KEY="U+OpBDM4GYtVltYAneMOXFEdk5MXpLs7MLlbQmFgu/J71QApcZx3qewTiranexuf5q1YkcosadXc+AStZ7K69w==" -e ALLOWED_HOSTS="localhost" -e DB_HOST="fireprotection.postgres.database.azure.com" -e DB_USER="hj2013@fireprotection" -e DB_PASSWORD="hjkang7096*" -e DB_NAME="postgres" fireprotection
-
-
-
-52.231.38.95
-52.231.37.184
-52.231.38.172
-52.231.33.182
-52.231.34.9
