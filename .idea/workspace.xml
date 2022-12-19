@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(도커에 staticfiles 적용4)">
-      <change afterPath="$PROJECT_DIR$/.env.prod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.prod.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(개발용과 배포용 도커파일 분리)">
+      <change afterPath="$PROJECT_DIR$/nginx/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/informatiom.txt" beforeDir="false" afterPath="$PROJECT_DIR$/information.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/settings/prod.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings/prod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/information.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,6 +25,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
