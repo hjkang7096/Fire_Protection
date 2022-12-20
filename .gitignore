@@ -4,4 +4,3 @@ venv
 .venv
 .env.prod
 .env.prod.db
-information.txt

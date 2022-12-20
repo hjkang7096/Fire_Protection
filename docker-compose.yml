@@ -7,7 +7,7 @@ services:
       - static_volume:/usr/src/app/staticfiles
       - media_volume:/usr/src/app/media
     ports:
-      - "80:80"
+      - 80:80
     depends_on:
       - web
   web:
