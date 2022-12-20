@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(개발용과 배포용 도커파일 분리)">
-      <change afterPath="$PROJECT_DIR$/nginx/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
+    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(small_change)">
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore(Holix)" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/information.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/settings/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings/common.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +25,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -161,6 +160,7 @@
       <workItem from="1670847626622" duration="9372000" />
       <workItem from="1671076395875" duration="6962000" />
       <workItem from="1671368228630" duration="4590000" />
+      <workItem from="1671542567009" duration="3457000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1661159522172</created>
@@ -260,7 +260,28 @@
       <option name="project" value="LOCAL" />
       <updated>1671234827752</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="do_it_django_setting(Nginx 적용)">
+      <created>1671413074621</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1671413074621</updated>
+    </task>
+    <task id="LOCAL-00016" summary="do_it_django_setting(.env.prod secret_key change..)">
+      <created>1671541055220</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1671541055220</updated>
+    </task>
+    <task id="LOCAL-00017" summary="do_it_django_setting(small_change)">
+      <created>1671541885850</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1671541885850</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +311,10 @@
     <MESSAGE value="do_it_django_setting(도커에 staticfiles 적용2)" />
     <MESSAGE value="do_it_django_setting(도커에 staticfiles 적용3)" />
     <MESSAGE value="do_it_django_setting(도커에 staticfiles 적용4)" />
-    <option name="LAST_COMMIT_MESSAGE" value="do_it_django_setting(도커에 staticfiles 적용4)" />
+    <MESSAGE value="do_it_django_setting(Nginx 적용)" />
+    <MESSAGE value="do_it_django_setting(.env.prod secret_key change..)" />
+    <MESSAGE value="do_it_django_setting(small_change)" />
+    <option name="LAST_COMMIT_MESSAGE" value="do_it_django_setting(small_change)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
