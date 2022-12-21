@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(small_change)">
-      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore(Holix)" beforeDir="false" />
+    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(staticfiles)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mysite/settings/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/settings/common.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,7 +157,7 @@
       <workItem from="1670847626622" duration="9372000" />
       <workItem from="1671076395875" duration="6962000" />
       <workItem from="1671368228630" duration="4590000" />
-      <workItem from="1671542567009" duration="3457000" />
+      <workItem from="1671542567009" duration="8096000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1661159522172</created>
@@ -281,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671541885850</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="do_it_django_setting(staticfiles)">
+      <created>1671547071214</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1671547071214</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -314,7 +318,8 @@
     <MESSAGE value="do_it_django_setting(Nginx 적용)" />
     <MESSAGE value="do_it_django_setting(.env.prod secret_key change..)" />
     <MESSAGE value="do_it_django_setting(small_change)" />
-    <option name="LAST_COMMIT_MESSAGE" value="do_it_django_setting(small_change)" />
+    <MESSAGE value="do_it_django_setting(staticfiles)" />
+    <option name="LAST_COMMIT_MESSAGE" value="do_it_django_setting(staticfiles)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
