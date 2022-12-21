@@ -8,12 +8,17 @@
             {% for post in page_obj %}
                 <!-- Featured blog post-->
                 <div class="card mb-4">
-                    {% if post.head_image_thumbnail %}
-{#                        <img class="card-img-top" src="{% thumbnail post.head_image 850x350 crop %}" alt="{{ post }} head image" />#}
-                        <img class="card-img-top" src="{{ post.head_image_thumbnail.url }}" alt="{{ post }} head image"/>
+{#                    {% if post.head_image_thumbnail %}#}
+{#                        <img class="card-img-top" src="{{ post.head_image_thumbnail.url }}" alt="{{ post }} head image"/>#}
+{#                    {% else %}#}
+{#                        <img class="card-img-top" src="https://picsum.photos/850/350/?blur" alt="random_image">#}
+{#                    {% endif %}#}
+                    {% if post.head_image %}
+                        <img class="card-img-top" src="{% thumbnail post.head_image 850x350 crop %}" alt="{{ post }} head image" />
                     {% else %}
                         <img class="card-img-top" src="https://picsum.photos/850/350/?blur" alt="random_image">
                     {% endif %}
+
                     <div class="card-body">
                         <h3 class="card-title mb-2">
                             {{ post.title }}
