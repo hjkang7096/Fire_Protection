@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(staticfiles)">
+    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(proxy buffer up)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
     </list>
@@ -157,7 +157,7 @@
       <workItem from="1670847626622" duration="9372000" />
       <workItem from="1671076395875" duration="6962000" />
       <workItem from="1671368228630" duration="4590000" />
-      <workItem from="1671542567009" duration="8096000" />
+      <workItem from="1671542567009" duration="8992000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1661159522172</created>
@@ -285,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671547071214</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="do_it_django_setting(proxy buffer up)">
+      <created>1671580865345</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1671580865345</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -319,7 +326,8 @@
     <MESSAGE value="do_it_django_setting(.env.prod secret_key change..)" />
     <MESSAGE value="do_it_django_setting(small_change)" />
     <MESSAGE value="do_it_django_setting(staticfiles)" />
-    <option name="LAST_COMMIT_MESSAGE" value="do_it_django_setting(staticfiles)" />
+    <MESSAGE value="do_it_django_setting(proxy buffer up)" />
+    <option name="LAST_COMMIT_MESSAGE" value="do_it_django_setting(proxy buffer up)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
