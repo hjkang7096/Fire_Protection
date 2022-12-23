@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(proxy buffer up)">
+    <list default="true" id="7ce5b738-7dc3-4066-8036-fa5ec5cff3be" name="Changes" comment="do_it_django_setting(easy_thumnail 사용)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nginx/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/nginx/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile(Holix)" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile(Holix)" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/templates/blog/comment_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/blog/templates/blog/comment_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board1/templates/board1/comment_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/board1/templates/board1/comment_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board2/templates/board2/comment_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/board2/templates/board2/comment_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/templates/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/templates/about.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -157,7 +163,8 @@
       <workItem from="1670847626622" duration="9372000" />
       <workItem from="1671076395875" duration="6962000" />
       <workItem from="1671368228630" duration="4590000" />
-      <workItem from="1671542567009" duration="8992000" />
+      <workItem from="1671542567009" duration="19318000" />
+      <workItem from="1671755300355" duration="4258000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1661159522172</created>
@@ -292,7 +299,49 @@
       <option name="project" value="LOCAL" />
       <updated>1671580865345</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="do_it_django_setting(proxy buffer up2)">
+      <created>1671581738746</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1671581738746</updated>
+    </task>
+    <task id="LOCAL-00021" summary="do_it_django_setting(proxy buffer up3)">
+      <created>1671582078804</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1671582078804</updated>
+    </task>
+    <task id="LOCAL-00022" summary="do_it_django_setting(proxy buffer up4)">
+      <created>1671583473582</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1671583473582</updated>
+    </task>
+    <task id="LOCAL-00023" summary="do_it_django_setting(thumnail size change)">
+      <created>1671584509796</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1671584509796</updated>
+    </task>
+    <task id="LOCAL-00024" summary="do_it_django_setting(file_upload_size_up)">
+      <created>1671596364001</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1671596364001</updated>
+    </task>
+    <task id="LOCAL-00025" summary="do_it_django_setting(easy_thumnail 사용)">
+      <created>1671597926224</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1671597926224</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -327,7 +376,13 @@
     <MESSAGE value="do_it_django_setting(small_change)" />
     <MESSAGE value="do_it_django_setting(staticfiles)" />
     <MESSAGE value="do_it_django_setting(proxy buffer up)" />
-    <option name="LAST_COMMIT_MESSAGE" value="do_it_django_setting(proxy buffer up)" />
+    <MESSAGE value="do_it_django_setting(proxy buffer up2)" />
+    <MESSAGE value="do_it_django_setting(proxy buffer up3)" />
+    <MESSAGE value="do_it_django_setting(proxy buffer up4)" />
+    <MESSAGE value="do_it_django_setting(thumnail size change)" />
+    <MESSAGE value="do_it_django_setting(file_upload_size_up)" />
+    <MESSAGE value="do_it_django_setting(easy_thumnail 사용)" />
+    <option name="LAST_COMMIT_MESSAGE" value="do_it_django_setting(easy_thumnail 사용)" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

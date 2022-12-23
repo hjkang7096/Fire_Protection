@@ -70,6 +70,8 @@ class Post(models.Model):
             tag, _ = Tag.objects.get_or_create(name=tag_name)
             tag_list.append(tag)
         return tag_list
+    class Meta:
+        ordering = ["-id"]
 
 
 class Comment(models.Model):

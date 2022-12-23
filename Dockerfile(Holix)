@@ -9,7 +9,7 @@ ADD . /djangoproject
 
 RUN python3 -m pip install --upgrade pip
 RUN pip3 install importlib-metadata
-RUN pip3 install -r requirements(Holix).txt
+RUN pip3 install -r requirements.txt
 
 ENV PYTHONUNBUFFERED = 1
 ENV PYTHONIOENCODING=utf-8
