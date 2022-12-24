@@ -4,10 +4,7 @@ from django_summernote.widgets import SummernoteWidget
 from tinymce.widgets import TinyMCE
 
 
-
-
 class PostForm(forms.ModelForm):
-
     class Meta:
         model = Post
         fields = ["title", "content", "head_image", "file_upload", "category"]

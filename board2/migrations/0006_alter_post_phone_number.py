@@ -7,13 +7,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('board2', '0005_remove_post_file_upload'),
+        ("board2", "0005_remove_post_file_upload"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='phone_number',
-            field=models.CharField(max_length=13, validators=[django.core.validators.RegexValidator('^010-?[1-9]\\d{3}-?\\d{4}$')]),
+            model_name="post",
+            name="phone_number",
+            field=models.CharField(
+                max_length=13,
+                validators=[
+                    django.core.validators.RegexValidator("^010-?[1-9]\\d{3}-?\\d{4}$")
+                ],
+            ),
         ),
     ]

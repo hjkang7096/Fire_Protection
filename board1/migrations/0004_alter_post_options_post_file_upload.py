@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('board1', '0003_alter_post_created_at'),
+        ("board1", "0003_alter_post_created_at"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='post',
-            options={'ordering': ['-id']},
+            name="post",
+            options={"ordering": ["-id"]},
         ),
         migrations.AddField(
-            model_name='post',
-            name='file_upload',
-            field=models.FileField(blank=True, upload_to='board1/files/%Y/%m%d'),
+            model_name="post",
+            name="file_upload",
+            field=models.FileField(blank=True, upload_to="board1/files/%Y/%m%d"),
         ),
     ]

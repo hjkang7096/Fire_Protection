@@ -6,7 +6,16 @@ from django_summernote.widgets import SummernoteWidget
 class PostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields = ["title", "category", "phone_number", "content", "postcode", "roadAddress", "jibunAddress", "detailAddress"]
+        fields = [
+            "title",
+            "category",
+            "phone_number",
+            "content",
+            "postcode",
+            "roadAddress",
+            "jibunAddress",
+            "detailAddress",
+        ]
 
     def __init__(self, *args, **kwargs):
         super(PostForm, self).__init__(*args, **kwargs)

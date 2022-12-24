@@ -6,13 +6,13 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('board1', '0002_alter_post_subject'),
+        ("board1", "0002_alter_post_subject"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='created_at',
+            model_name="post",
+            name="created_at",
             field=models.DateTimeField(auto_now_add=True),
         ),
     ]

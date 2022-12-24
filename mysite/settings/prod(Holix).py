@@ -18,7 +18,7 @@ DATABASES = {
         "HOST": os.environ["DB_HOST"],
         "USER": os.environ["DB_USER"],
         "PASSWORD": os.environ["DB_PASSWORD"],
-        "NAME": os.environ.get("DB_NAME", "postgres")
+        "NAME": os.environ.get("DB_NAME", "postgres"),
     },
 }
 
@@ -26,10 +26,7 @@ LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
     "handlers": {
-        "console": {
-            "level": "ERROR",
-            "class": "logging.StreamHandler"
-        },
+        "console": {"level": "ERROR", "class": "logging.StreamHandler"},
     },
     "loggers": {
         "django": {

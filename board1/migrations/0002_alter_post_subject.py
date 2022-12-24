@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('board1', '0001_initial'),
+        ("board1", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='subject',
-            field=models.CharField(blank=True, choices=[('[질문]', '질문'), ('[요청]', '요청'), ('[기타]', '기타')], max_length=8),
+            model_name="post",
+            name="subject",
+            field=models.CharField(
+                blank=True,
+                choices=[("[질문]", "질문"), ("[요청]", "요청"), ("[기타]", "기타")],
+                max_length=8,
+            ),
         ),
     ]

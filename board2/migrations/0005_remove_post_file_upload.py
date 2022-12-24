@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('board2', '0004_remove_post_content_post_phone_number'),
+        ("board2", "0004_remove_post_content_post_phone_number"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='post',
-            name='file_upload',
+            model_name="post",
+            name="file_upload",
         ),
     ]

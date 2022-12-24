@@ -29,7 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-l_1pf%jq7*23fjk#@0-*kxrk*t68amfv%7em3ei+145go66qd#")
+SECRET_KEY = os.environ.get(
+    "SECRET_KEY", "django-insecure-l_1pf%jq7*23fjk#@0-*kxrk*t68amfv%7em3ei+145go66qd#"
+)
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -176,7 +178,7 @@ LOGIN_REDIRECT_URL = reverse_lazy("root")
 # summernote 기능을 구현하기 위해 꼭 필요한 인자 (django 3.0 이상부터)
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
-SUMMERNOTE_THEME = 'bs5'
+SUMMERNOTE_THEME = "bs5"
 
 # summernote setting
 SUMMERNOTE_CONFIG = {
@@ -197,4 +199,3 @@ SUMMERNOTE_CONFIG = {
     # Or, explicitly set language/locale for editor
     "lang": "ko-KR",
 }
-

@@ -7,24 +7,40 @@ import django.db.models.deletion
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('board1', '0005_comment'),
+        ("board1", "0005_comment"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Category',
+            name="Category",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=50, unique=True)),
-                ('slug', models.SlugField(allow_unicode=True, max_length=200, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=50, unique=True)),
+                (
+                    "slug",
+                    models.SlugField(allow_unicode=True, max_length=200, unique=True),
+                ),
             ],
             options={
-                'verbose_name_plural': 'Categories',
+                "verbose_name_plural": "Categories",
             },
         ),
         migrations.AddField(
-            model_name='post',
-            name='category',
-            field=models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, to='board1.category'),
+            model_name="post",
+            name="category",
+            field=models.ForeignKey(
+                blank=True,
+                null=True,
+                on_delete=django.db.models.deletion.SET_NULL,
+                to="board1.category",
+            ),
         ),
     ]

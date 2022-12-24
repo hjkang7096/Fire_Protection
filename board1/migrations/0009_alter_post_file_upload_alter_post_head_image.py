@@ -6,18 +6,18 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('board1', '0008_post_head_image_post_updated_at_and_more'),
+        ("board1", "0008_post_head_image_post_updated_at_and_more"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='post',
-            name='file_upload',
-            field=models.FileField(blank=True, upload_to='board1/files/%Y/%m%d'),
+            model_name="post",
+            name="file_upload",
+            field=models.FileField(blank=True, upload_to="board1/files/%Y/%m%d"),
         ),
         migrations.AlterField(
-            model_name='post',
-            name='head_image',
-            field=models.ImageField(blank=True, upload_to='board1/images/%Y/%m/%d'),
+            model_name="post",
+            name="head_image",
+            field=models.ImageField(blank=True, upload_to="board1/images/%Y/%m/%d"),
         ),
     ]

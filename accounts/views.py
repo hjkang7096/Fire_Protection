@@ -134,6 +134,7 @@ def password_change(request):
         },
     )
 
+
 @method_decorator(logout_message_required, name="dispatch")
 class RecoveryIdView(View):
     template_name = "accounts/recovery_id.html"

@@ -169,7 +169,7 @@ LOGIN_REDIRECT_URL = reverse_lazy("root")
 # summernote 기능을 구현하기 위해 꼭 필요한 인자 (django 3.0 이상부터)
 X_FRAME_OPTIONS = "SAMEORIGIN"
 
-SUMMERNOTE_THEME = 'bs5'
+SUMMERNOTE_THEME = "bs5"
 
 # summernote setting
 SUMMERNOTE_CONFIG = {

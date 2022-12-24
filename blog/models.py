@@ -7,8 +7,6 @@ from imagekit.processors import Thumbnail
 from tinymce.models import HTMLField
 
 
-
-
 class Category(models.Model):
     name = models.CharField(max_length=50, unique=True)
     slug = models.SlugField(max_length=200, unique=True, allow_unicode=True)
@@ -39,8 +37,9 @@ class Post(models.Model):
     head_image_thumbnail = ImageSpecField(
         source="head_image",  # 원본 ImageField 명
         processors=[Thumbnail(850, 350)],  # 처리할 작업목록
-        format='JPEG',  # 최종 저장 포맷
-        options={'quality': 60})  # 저장 옵션
+        format="JPEG",  # 최종 저장 포맷
+        options={"quality": 60},
+    )  # 저장 옵션
     file_upload = models.FileField(upload_to="blog/files/%Y/%m%d", blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -70,6 +69,7 @@ class Post(models.Model):
             tag, _ = Tag.objects.get_or_create(name=tag_name)
             tag_list.append(tag)
         return tag_list
+
     class Meta:
         ordering = ["-id"]
 

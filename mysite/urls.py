@@ -17,8 +17,7 @@ urlpatterns = [
     path("board2/", include("board2.urls")),
     path("identicon/image/<path:data>/", pydenticon_image, name="pydenticon_image"),
     path("summernote/", include("django_summernote.urls")),
-    path('tinymce/', include('tinymce.urls')),
-
+    path("tinymce/", include("tinymce.urls")),
     # 비밀번호 재설정을 위하여 추가된 코드
     path(
         "password_reset/done/",

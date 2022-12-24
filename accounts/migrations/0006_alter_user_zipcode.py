@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('accounts', '0005_alter_user_zipcode'),
+        ("accounts", "0005_alter_user_zipcode"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='user',
-            name='zipcode',
-            field=models.CharField(blank=True, help_text='검색버튼을 눌러 주소를 입력해주세요!', max_length=10, null=True),
+            model_name="user",
+            name="zipcode",
+            field=models.CharField(
+                blank=True, help_text="검색버튼을 눌러 주소를 입력해주세요!", max_length=10, null=True
+            ),
         ),
     ]

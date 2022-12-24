@@ -8,13 +8,13 @@ import tinymce.models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('board2', '0006_alter_post_phone_number'),
+        ("board2", "0006_alter_post_phone_number"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='post',
-            name='content',
+            model_name="post",
+            name="content",
             field=tinymce.models.HTMLField(default=django.utils.timezone.now),
             preserve_default=False,
         ),

@@ -7,17 +7,23 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('board2', '0003_comment'),
+        ("board2", "0003_comment"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='post',
-            name='content',
+            model_name="post",
+            name="content",
         ),
         migrations.AddField(
-            model_name='post',
-            name='phone_number',
-            field=models.CharField(blank=True, max_length=13, validators=[django.core.validators.RegexValidator('^010-?[1-9]\\d{3}-?\\d{4}$')]),
+            model_name="post",
+            name="phone_number",
+            field=models.CharField(
+                blank=True,
+                max_length=13,
+                validators=[
+                    django.core.validators.RegexValidator("^010-?[1-9]\\d{3}-?\\d{4}$")
+                ],
+            ),
         ),
     ]
