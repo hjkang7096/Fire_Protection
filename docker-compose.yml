@@ -4,8 +4,8 @@ services:
   nginx:
     build: ./nginx
     volumes:
-      - static_volume:/usr/src/app/_static
-      - media_volume:/usr/src/app/_media
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/media
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
     ports:
@@ -21,10 +21,10 @@ services:
       - ./data/certbot/www:/var/www/certbot
   web:
     build: .
-    command: gunicorn do_it_django_prj.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn mysite.wsgi:application --bind 0.0.0.0:8000
     volumes:
-      - static_volume:/usr/src/app/_static
-      - media_volume:/usr/src/app/_media
+      - static_volume:/usr/src/app/staticfiles
+      - media_volume:/usr/src/app/media
       - ./:/usr/src/app/
     ports:
       - 8000
